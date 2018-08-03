@@ -1,0 +1,13 @@
+/public/js
+/node_modules
+/target
+/yarn.lock
+/package-lock.json
+/.shadow-cljs
+/*.iml
+/.nrepl-port
+/.idea
+.DS_Store
+/dev/audits/*
+/public/*
+/workbox-config.js

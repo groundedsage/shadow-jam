@@ -1,0 +1,21 @@
+{
+  "name": "ShadowJAM PWA",
+  "short_name": "ShadowJAM",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff",
+  "theme_color": "#27386f",
+  "icons": [
+    {
+      "src": "images/static/shadow-jam-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/static/shadow-jam-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+}
+
+header {
+  background-color: rgb(67, 128, 219);
+  padding-left: 1.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+header h1 {
+  font-family: "Bungee Inline", cursive;
+  font-weight: normal;
+  color: white;
+  max-width: 960px;
+  margin: auto;
+}
+
+main {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1.5rem;
+  max-width: 960px;
+  margin: auto;
+}
+
+/* Image research */
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.image-wrapper img {
+  display: block;
+}
+
+.image-wrapper img.image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+.fade-box .lazyload,
+.fade-box .lazyloading {
+  opacity: 0;
+  transition: opacity 400ms;
+}
+
+.fade-box img.lazyloaded {
+  opacity: 1;
+  transition: opacity 400ms;
+}
+
+.blur-up {
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  transition: filter 400ms, -webkit-filter 400ms;
+}
+
+.blur-up.lazyloaded {
+  -webkit-filter: blur(0);
+  filter: blur(0);
+}

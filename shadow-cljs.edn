@@ -1,0 +1,26 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src" "dev"]
+
+ :dependencies [[rum "0.11.2"]                  ;; React Wrapper
+                [metosin/reitit-core "0.1.3"]   ;; Routing
+                [kibu/pushy "0.3.8"]            ;; HTML5 Pushstate
+                [binaryage/devtools "0.9.10"]   ;; Devtools (Chrome)
+                [me.raynes/fs "1.4.6"]]
+
+ :builds
+ {:app {:target :browser
+        :build-hooks [(util.task/clean)
+                      (util.task/make-jam {:workbox true
+                                           :subfont true})]
+        :output-dir "public/js"
+        :asset-path "/js"
+
+        :modules
+        {:main ;; <- becomes public/js/main.js
+         {:entries [components.app]}}
+
+        ;; start a development http server on http://localhost:8020
+        :devtools
+        {:http-root "public"
+         :http-port 8020}}}}
