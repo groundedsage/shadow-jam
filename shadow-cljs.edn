@@ -10,9 +10,8 @@
 
  :builds
  {:app {:target :browser
-        :build-hooks [(util.task/clean)
-                      (util.task/make-jam {:workbox true
-                                           :subfont true})]
+        :build-hooks [(util.task/make-jam {:workbox false
+                                           :subfont false})]
         :output-dir "public/js"
         :asset-path "/js"
 

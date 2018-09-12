@@ -95,17 +95,7 @@
 
 ;; Build hooks
 
-(defn clean
-  {:shadow.build/stage :configure}
-  [{:shadow.build/keys [mode] :as build-state}]
-  (do
-    (println "🛠   Cleaning image folder...")
-    (fs/delete-dir "public/images")
-    (fs/mkdir "public/images")
-    (fs/copy-dir "src/images/static" "public/images/")
-    (println "🔗  Moved Static images to public folder")
-    (println "✅   Fished cleaning image folder")
-    build-state))
+
 
 (defn make-jam
   {:shadow.build/stage :flush}
