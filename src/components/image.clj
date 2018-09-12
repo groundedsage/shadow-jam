@@ -1,6 +1,7 @@
 (ns components.image
   (:require [clojure.string :as str :refer [includes?]]
-            [clojure.data.json :as json]))
+            [clojure.data.json :as json]
+            [me.raynes.fs :as fs]))
 
 
 
@@ -101,7 +102,6 @@
                      (map #(java.util.regex.Pattern/quote %))
                      (interpose \|)
                      (apply str))]
-    (println pattern)
     (.replaceAll src pattern "")))
 
 
@@ -135,7 +135,7 @@
 
 
 (defn call-sharp-lib! [src src-without-extension format type dimensions]
-  (println "🛠   Perfoming image manipulation on: " src-without-extension)
+  (println "🛠   Performing image manipulation on: " src-without-extension)
   (clojure.java.shell/sh "node" "dev/scripts/sharp-tool"
     (let [widths (if (= :sizes type) (fluid-sizes dimensions) (resolutions dimensions))]
       (json/write-str {:formats {:webp true
@@ -153,10 +153,15 @@
     (case type
       :sizes  [:source {:type (str "image/" format)
                         :src-set transparent-gif
-                        :data-srcset (str/join ", " (map #(str src "-" % "." format " " % "w") (fluid-sizes dimensions)))}]
+                        :data-srcset (str/join ", " (map #(str src "/" % "." format " " % "w") (fluid-sizes dimensions)))}]
       :resolutions  [:source {:type (str "image/" format)
                               :src-set transparent-gif
-                              :data-srcset (str/join ", " (map #(str src "-" % "." format " " %2 "x") (resolutions dimensions) [1 1.5 2 3]))}])))
+                              :data-srcset (str/join ", " (map #(str src "/" % "." format " " %2 "x") (resolutions dimensions) [1 1.5 2 3]))}])))
+;
+(defonce images-list
+    (->> (fs/iterate-dir "public/images")
+         (reduce #(conj %1 {(fs/base-name (first %2)) (nth %2 2)}) {})))
+
 
 
 ;; Main Component
@@ -173,7 +178,14 @@
           responsive-type (first (keys responsive))
           dimensions (responsive-type responsive)]
       (do
-        (call-sharp-lib! src src-without-extension format responsive-type dimensions)
+        ;; Still needs to perform a thorough check of what files have been generated and do a sweeping clean of what is not recorded as necessary
+        (if (get images-list (str/replace src-without-extension #"images/" ""))
+          nil
+          (do
+            (fs/mkdir (str "public/" src-without-extension))
+            (call-sharp-lib! src src-without-extension format responsive-type dimensions)))
+
+
 
         ;; Transparent placeholder
         [:div {:style dimensions}
