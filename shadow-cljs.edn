@@ -2,11 +2,7 @@
 {:source-paths
  ["src" "dev"]
 
- :dependencies [[rum "0.11.2"]                  ;; React Wrapper
-                [metosin/reitit-core "0.1.3"]   ;; Routing
-                [kibu/pushy "0.3.8"]            ;; HTML5 Pushstate
-                [binaryage/devtools "0.9.10"]   ;; Devtools (Chrome)
-                [me.raynes/fs "1.4.6"]]
+ :deps true
 
  :builds
  {:app {:target :browser
