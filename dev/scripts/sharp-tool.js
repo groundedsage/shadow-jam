@@ -5,7 +5,7 @@ function resizeImg(src, srcWithoutExtension, widths, format) {
   widths.map(width => {
     sharp(src)
       .resize(width, null)
-      .toFile(`public/${srcWithoutExtension}-${width}.${format}`)
+      .toFile(`public/${srcWithoutExtension}/${width}.${format}`)
       .then(info => {})
       .catch(err => {});
   });
