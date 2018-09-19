@@ -1,0 +1,6 @@
+{:deps
+ {rum {:mvn/version "0.11.2"}
+  metosin/reitit-core {:mvn/version "0.1.3"}
+  kibu/pushy {:mvn/version "0.3.8"}
+  binaryage/devtools {:mvn/version "0.9.10"}
+  me.raynes/fs {:mvn/version "1.4.6"}}}
