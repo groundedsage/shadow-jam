@@ -11,3 +11,4 @@
 /dev/audits/*
 /public/*
 /workbox-config.js
+/.cpcache
