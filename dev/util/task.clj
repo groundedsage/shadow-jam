@@ -4,7 +4,8 @@
             [clojure.string :as str]
             [rum.core :as rum]
             [components.router :refer [state set-page! current-page]]
-            [me.raynes.fs :as fs]))
+            [me.raynes.fs :as fs]
+            [util.server-render :as server]))
             ;[cljss.ssr :as ssr]))
 
 
@@ -28,10 +29,17 @@
             _ (println css)]
 
         (rum/render-html html))))
-
-
+;
 (defn render-content []
-  (rum/render-html (current-page)))
+  (let [[html-str css-str] (server/render-html (current-page))]
+    (do
+      (spit "public/new.css" css-str :append true)
+      (println (str "Rendered CSS from: " (current-page)))
+      (println (str "Rendered STRING: "html-str))
+      html-str)))
+
+#_(defn render-content []
+    (rum/render-html (current-page)))
 
 
 ;; Render HTML page for :watch
