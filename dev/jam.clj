@@ -35,6 +35,6 @@
   (do
     (println "🛠   Rendering routes to HTML ...")
     (render-index)
-    (println "🔗  Movied CSS to public folder")
+    (println "🔗  Moved CSS to public folder")
     (css-move)
     (shadow/watch :app)))

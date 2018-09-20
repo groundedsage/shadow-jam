@@ -4,6 +4,7 @@
   kibu/pushy {:mvn/version "0.3.8"}
   binaryage/devtools {:mvn/version "0.9.10"}
   me.raynes/fs {:mvn/version "1.4.6"}
-  groundedSAGE/cljss {:git/url "https://github.com/groundedSAGE/cljss.git" :sha "01dd8af273a0f6560f305a29a72d43929a84c4ed"}}
+  ;groundedSAGE/cljss {:git/url "https://github.com/groundedSAGE/cljss.git" :sha "212a9786c84c83c08c3697035f8f14ca1aa75a30"}
   ;org.roman01la/cljss {:mvn/version "1.7.0-SNAPSHOT"}}
+  org.roman01la/cljss {:mvn/version "1.6.3"}}
  :paths ["src" "dev"]}
