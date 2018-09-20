@@ -4,7 +4,8 @@
             [clojure.string :as str]
             [rum.core :as rum]
             [components.router :refer [state set-page! current-page]]
-            [me.raynes.fs :as fs]))
+            [me.raynes.fs :as fs]
+            [cljss.ssr :as ssr]))
 
 
 
@@ -20,7 +21,13 @@
 
 
 ;; Render HTML page
-(defn render-content [] (rum/render-html (current-page)))
+(defn render-content []
+  (binding [ssr/*ssr-ctx* (atom {:styles {}})]
+    (let [html (current-page)
+          [html css] (ssr/render-css html)
+          _ (println css)]
+
+      (rum/render-html html))))
 
 
 ;; Render HTML page for :watch
