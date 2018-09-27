@@ -18,6 +18,9 @@
   ;    (workbox-manifest)
   ;    (println "✅  Finished injecting workbox manifest")
   (do
+    (println "🛠   Subsetting fonts ...")
+    (subfont-setter)
+
     (println "🛠   Rendering routes to HTML ...")
     (render-pages)
     (css-move)
