@@ -33,7 +33,7 @@ Clone the repository. Then `cd` into it.
 
 ```bash
 npm install
-npx shadow-cljs server
+shadow-cljs server
 ```
 
 This runs the `shadow-cljs` server process which all following commands will talk to. Just leave it running and open a new terminal to continue.
@@ -41,7 +41,7 @@ This runs the `shadow-cljs` server process which all following commands will tal
 The first startup takes a bit of time since it has to download all the dependencies and do some prep work. Once this is running we can get started.
 
 ```txt
-npx shadow-cljs watch app
+shadow-cljs run jam/watch
 ```
 
 This will begin the compilation of the configured `:app` build and re-compile whenever you change a file.
@@ -55,7 +55,7 @@ npx workbox wizard --injectManifest
 Then run.
 
 ```txt
-npx shadow-cljs release app
+shadow-cljs run jam/release
 ```
 
 Now the same url will have a production release that can be used for testing locally eg. Chrome Lighthouse Audits.
