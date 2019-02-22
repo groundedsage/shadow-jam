@@ -7,7 +7,7 @@
 ;; start is called by init and after code reloading finishes
 (defn ^:dev/after-load start []
   (rum/hydrate (current-page)
-             (. js/document (getElementById "app")))
+               (. js/document (getElementById "app")))
 
   (js/console.log "start"))
 
