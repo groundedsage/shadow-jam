@@ -12,6 +12,11 @@
         :modules
         {:main ;; <- becomes public/js/main.js
          {:entries [components.app]}}
+        :js-options
+        {:resolve
+         {"react" {:target :npm :require "preact-compat"}
+          "react-dom" {:target :npm :require "preact-compat"}
+          "create-react-class" {:target :npm :require "preact-compat/lib/create-react-class"}}}
 
         ;; start a development http server on http://localhost:8020
         :devtools

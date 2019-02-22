@@ -28,15 +28,15 @@
   (do
     (set-page! :index)
     (spit "public/index.html"
-      (->
-        (str/replace (html-template) #"\{ ssr-html \}" "")
-        (str/replace  #"\{ main-script \}" "<script src=\"/js/main.js\"></script><script>components.app.init();</script>")))))
+          (->
+           (str/replace (html-template) #"\{ ssr-html \}" "")
+           (str/replace  #"\{ main-script \}" "<script src=\"/js/main.js\"></script><script>components.app.init();</script>")))))
 
 
 
 ;; SW.js registration script
 (def service-worker-script
-     "<script>
+  "<script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js')
@@ -61,11 +61,11 @@
               _ (set-page! (keyword page))]
           (do
             (spit
-              (str "public/" page ".html")
-              (->
-                (str/replace (html-template) #"\{ ssr-html \}" (render-content))
-                (str/replace  #"\{ main-script \}" "<script defer src=\"/js/main.js\" onload=\"components.app.init();\"></script>")
-                (str/replace  #"\{ workbox-script \}" service-worker-script)))
+             (str "public/" page ".html")
+             (->
+              (str/replace (html-template) #"\{ ssr-html \}" (render-content))
+              (str/replace  #"\{ main-script \}" "<script defer src=\"/js/main.js\" onload=\"components.app.init();\"></script>")
+              (str/replace  #"\{ workbox-script \}" service-worker-script)))
             (recur (rest routes))))))))
 
 
@@ -73,21 +73,27 @@
 (defn css-move []
   (spit "public/css/main.css" (slurp "src/main.css")))
 
+;; Generate Tailwind CSS
+
+(defn tailwind-css []
+  (clojure.java.shell/sh "./node_modules/.bin/tailwind build ./src/styles.css -c ./tailwind.js -o ./src/css/main.css --no-autoprefixer"))
+
+
 (defn manifest-move []
   (spit "public/manifest.json" (slurp "src/manifest.json")))
 
 ;; Node scripts
 
 (defn audit []
-   (clojure.java.shell/sh "node" "dev/scripts/audit"))
+  (clojure.java.shell/sh "node" "dev/scripts/audit"))
 
 
 (defn critical-css []
-   (clojure.java.shell/sh "node" "dev/scripts/css-inliner"))
+  (clojure.java.shell/sh "node" "dev/scripts/css-inliner"))
 
 
 (defn subfont-setter []
-   (clojure.java.shell/sh "subfont" "public/index.html" "--inline-css" "-i"))
+  (clojure.java.shell/sh "subfont" "public/index.html" "--inline-css" "-i"))
 
 (defn workbox-manifest []
   (clojure.java.shell/sh  "npx" "workbox" "injectManifest" "workbox-config.js"))

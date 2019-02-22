@@ -35,5 +35,6 @@
     (println "🛠   Rendering routes to HTML ...")
     (render-index)
     (println "🔗  Movied CSS to public folder")
+    ;(tailwind-css)
     (css-move)
     (shadow/watch :app)))
