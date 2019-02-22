@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "preact": "^8.4.2",
-    "preact-compat": "^3.18.4"
+    "preact-compat": "^3.18.4",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
   }
 }

@@ -1,24 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.0.4/lazysizes.min.js" async=""></script>
-  <title>ShadowJAM Starter</title>
-  <meta name="description" content="This is a JAMstack build tool for cljs">
-  <link rel="manifest" href="manifest.json">
-  <link rel='stylesheet' href="/css/main.css" >
-  <link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="theme-color" content="#27386f">
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.0.4/lazysizes.min.js"
+      async=""
+    ></script>
+    <title>ShadowJAM Starter</title>
+    <meta name="description" content="This is a JAMstack build tool for cljs" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bungee+Inline"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#27386f" />
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
 
-<body>
-<div id="app">{ ssr-html }</div>
+  <body>
+    <div id="app">{ ssr-html }</div>
 
-{ main-script }
-{ workbox-script }
-
-</body>
+    { main-script } { workbox-script }
+  </body>
 </html>
