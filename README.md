@@ -1,5 +1,9 @@
 # Shadow JAM
 
+# Project Abandoned ☠️
+This project is no longer being developed. If you are looking for a toolkit to build **super lightweight websites** then I would highly suggest taking a look at https://svelte.dev/ and https://sapper.svelte.technology/. You get everything out of the box that this project was aiming at doing for smaller websites with a payload size of JS that this project would never be able to reach. If you are looking to build **rich data intensive applications** I would highly suggest taking a look at https://fulcro.fulcrologic.com/. 
+
+
 ### Starter (Not Production Ready)
 
 A JAMstack build tool for developing PWA's with Clojurescript. This build tool is focused on capturing Better Web Practices.
