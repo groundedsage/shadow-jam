@@ -1,7 +1,7 @@
 # Shadow JAM
 
 # Project Abandoned ☠️
-This project is no longer being developed. If you are looking for a toolkit to build **super lightweight websites** then I would highly suggest taking a look at https://svelte.dev/ and https://sapper.svelte.technology/. You get everything out of the box that this project was aiming at doing for smaller websites with a payload size of JS that this project would never be able to reach. If you are looking to build **rich data intensive applications** I would highly suggest taking a look at https://fulcro.fulcrologic.com/. 
+This project is no longer being developed. If you are looking for a toolkit to build **super lightweight websites** then I would highly suggest taking a look at https://www.11ty.io/ and https://sapper.svelte.technology/. You get everything out of the box that this project was aiming at doing for smaller websites with a payload size of JS that this project would never be able to reach. If you are looking to build **rich data intensive applications** I would highly suggest taking a look at https://fulcro.fulcrologic.com/ or https://github.com/Day8/re-frame which is a much easier to get started with in CLJS and more employable framework. 
 
 
 ### Starter (Not Production Ready)
